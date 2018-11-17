@@ -1,0 +1,7 @@
+#
+#Wed Nov 14 16:36:02 HKT 2018
+com.zhuokun.annotationtest.BankUser=org.springframework.stereotype.Component
+com.zhuokun.collection.Person=org.springframework.stereotype.Component
+com.zhuokun.annotationtest.SmartAccess=org.springframework.stereotype.Component
+com.zhuokun.collection.Customer=org.springframework.stereotype.Component
+com.zhuokun.innerBean.Customer=org.springframework.stereotype.Component

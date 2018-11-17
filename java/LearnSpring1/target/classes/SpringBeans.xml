@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--Object definition-->
+    <bean id="helloBean" class="com.zhuokun.HelloWorld.HelloWorld">
+        <!--refers to the absolute path of the package-->
+        <property name="name" value="zhuokun"/>
+    </bean>
+
+    <bean id="outputhelper" class="com.zhuokun.loose_coupling.OutputHelper">
+        <property name="generator" ref="JSONGenerator"/>
+        <!--unlike primitive types, classes we use are reference, a new keyword produces a reference to an object
+        stored in memory, hence ref attribute is used here-->
+    </bean>
+
+    <bean id="CsvGenerator" class="com.zhuokun.loose_coupling.CsvGenerator"/>
+
+    <bean id="JSONGenerator" class="com.zhuokun.loose_coupling.JSONGenerator"/>
+
+    <bean id="FileNameGenerator" class="com.zhuokun.Beans.FileNameGenerator">
+        <property name="name" value="yangzhuokun"/>
+        <property name="type" value="single"/>
+    </bean>
+
+
+    <!--以上方法利用 ref 很好的引用了 Person ，但是，
+    一旦 Person 被用在 Customer 下，也就不会被别的 Bean 引用。-->
+    <!--<bean id="Customer" class="com.zhuokun.innerBean.Customer">-->
+        <!--<property name="person" ref="Person"/>-->
+    <!--</bean>-->
+    <!--<bean id="Person" class="com.zhuokun.innerBean.Person">-->
+        <!--<property name="name" value="zhuokun yang"></property>-->
+        <!--<property name="address" value="guangzhou"></property>-->
+        <!--<property name="age" value="22"></property>-->
+    <!--</bean>-->
+
+
+    <!--alternatively-->
+    <bean id="Customer" class="com.zhuokun.innerBean.Customer">
+        <!--<property name="person">-->
+            <!--<bean class="com.zhuokun.innerBean.Person">-->
+                <!--<property name="name" value="zhuokun yang"></property>-->
+                <!--<property name="address" value="guangzhou"></property>-->
+                <!--<property name="age" value="22"></property>-->
+            <!--</bean>-->
+        <!--</property>-->
+
+
+    </bean>
+
+    <!--<bean id="CustomerServ" class="com.zhuokun.customer.service.CustomerService"/>-->
+    <bean id="CustomerServ" class="com.zhuokun.customer.service.CustomerService" scope="prototype"/>
+
+
+</beans>

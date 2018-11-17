@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <!--所有 beans 都能当作是一个 new 了的实例（地址）-->
+    <bean id="111" name="customer" class="com.zhuokun.collection.Customer">
+        <property name="lists">
+            <list>
+                <value>1</value>
+                <!--store an address that is already pointing to a memory, it put bean person into here-->
+                <ref bean="person"/>
+                <value>2</value>
+                <!--create a new block of memory of person and put addr to list, create a new bean into here-->
+                <bean class="com.zhuokun.collection.Person">
+                    <property name="name" value="Zhuokun Yang"/>
+                    <property name="address" value="T2 3A05 Fuli Square"/>
+                    <property name="age" value="21"/>
+                </bean>
+            </list>
+        </property>
+
+
+        <property name="sets">
+            <set>
+                <value>1</value>
+                <ref bean="person"/>
+                <value>2</value>
+                <bean class="com.zhuokun.collection.Person">
+                    <property name="name" value="Zhuokun Yang"/>
+                    <property name="address" value="T2 3A05 Fuli Square"/>
+                    <property name="age" value="21"/>
+                </bean>
+            </set>
+        </property>
+
+        <property name="maps">
+            <map>
+                <entry key="1">
+                    <value>1</value>
+                </entry>
+                <entry key="2">
+                    <ref bean="person"/>
+                </entry>
+                <entry key="3">
+                    <value>1</value>
+                </entry>
+                <entry key="4">
+                    <bean class="com.zhuokun.collection.Person">
+                        <property name="name" value="Zhuokun Yang"/>
+                        <property name="address" value="T2 3A05 Fuli Square"/>
+                        <property name="age" value="21"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+
+        <property name="pros">
+            <props>
+                <prop key="admin">zhuokun.yang@uts.edu.au</prop>
+                <prop key="support">support@uts.edu.au</prop>
+            </props>
+        </property>
+    </bean>
+    
+
+    <bean id="person" class="com.zhuokun.collection.Person">
+        <property name="name" value="Brandy Dong"/>
+        <property name="address" value="3 Thomas Street, Haymarket"/>
+        <property name="age" value="21"/>
+    </bean>
+</beans>
