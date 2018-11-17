@@ -3,7 +3,7 @@ My aims:
 - langauges: go, java, scala, python. Java is my first OO language to learn so it is detailed. Will focus on the language specialties in the future. 
 - algorithms
 
-This repo is just a presentation to universities that I applied for master degree.
+This repo is just a presentation to universities that I applied for master degree, showing my ability to learn new things, as I do not have a computer science related background. 
 
 ## Java
 - basics from collection framework to JDBC, multithreading, and other.
