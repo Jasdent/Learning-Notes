@@ -15,7 +15,7 @@ public class AuthenServlet{
         Connection conn = null;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL,"zhuokun","CserJasdent19");
+            conn = DriverManager.getConnection(DB_URL,"zhuokun","---------"); 
             conn.setAutoCommit(false);
             ResultSet rs = this.userDao.get(conn,user);
 //            conn.commit();
